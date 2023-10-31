@@ -2,27 +2,26 @@
 import Image from "next/image";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import bag from "../../../public/assets/bag.jpeg"
 import { FetchingItems } from "@/redux/service/api";
 import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { AddItemsIntoCart } from "@/redux/features/ItemSlice";
-import { ITEM } from "../../../@types/Item.types";
+import { ITEM } from "../../../@types/Types";
 
 const page = () => {
-const dispatch: Dispatch<AnyAction> = useDispatch();
-const {loading, error, items}:any = useSelector((state:RootState)=>state.Items)
-  
-  // ADD TO CART FUNCTION DEFINITION
+  const dispatch: Dispatch<AnyAction> = useDispatch();
+  const { loading, error, items }: any = useSelector(
+    (state: RootState) => state.Items
+  );
+
   const AddToCart = (item: ITEM) => {
-    dispatch(AddItemsIntoCart(item))
-  }
+    dispatch(AddItemsIntoCart(item));
+  };
 
-
-useEffect(() => {
-  FetchingItems(dispatch);
-}, [])
+  useEffect(() => {
+    FetchingItems(dispatch);
+  }, []);
 
   // JSX SECTION
   return (
@@ -36,7 +35,6 @@ useEffect(() => {
           </>
         ) : (
           items.map((item: any, index: React.Key | null | undefined) => (
-            
             <div
               key={index}
               className="w-[18rem] h-[20rem] max-w-sm bg-white border border-gray-200 rounded-lg shadow"
@@ -112,7 +110,7 @@ useEffect(() => {
                       ${item?.price}
                     </span>
                     <button
-                      onClick={(e)=>AddToCart(item)}
+                      onClick={(e) => AddToCart(item)}
                       className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                     >
                       Add to cart

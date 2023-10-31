@@ -18,15 +18,14 @@ const Navbar = () => {
           href="https://productbox.com/"
           className="flex items-center text-white"
         >
-          {/* <img
+          <img
             src="https://media.licdn.com/dms/image/C4D0BAQE3o3NS8S9Yzg/company-logo_200_200/0/1638522763263/productbox_logo?e=1706745600&v=beta&t=_OyqA-jjeNeLcWe5amPPI9e1sMyy4sjZM66uAZ1ctg8"
             className="h-8 mr-3"
             alt="productbox Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             ProductBox
-          </span> */}
-          HKB
+          </span>
         </Link>
 
         <div className="hidden w-full md:block md:w-auto">

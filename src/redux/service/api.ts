@@ -6,7 +6,7 @@ import axios from "axios";
 const BASE_API: any = process.env.NEXT_PUBLIC_DOMAIN_URL;
 export const API = axios.create({ baseURL: BASE_API });
 
-// ASSIGN COMPLAINT
+// Fetching Items
 export const FetchingItems = async (dispatch: Dispatch<AnyAction>): Promise<any> => {
     dispatch(MakingApiRequest());
     try {
@@ -26,10 +26,10 @@ export const FetchingItems = async (dispatch: Dispatch<AnyAction>): Promise<any>
 
 
 // Adding new item 
-export const addNewItem = async (): Promise<any> => {
+export const addNewItem = async (newItem:any): Promise<any> => {
     try {
-        const res = await API.post(`/items`);
-        // return res.data;
+        const res = await API.post(`/items`,newItem);
+        return res;
     } catch (err: any) {
         if (err.response?.status == 401) {
             return err.response;

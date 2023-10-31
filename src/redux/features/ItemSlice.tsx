@@ -1,18 +1,11 @@
-"use client"
+"use client";
 import { createSlice } from "@reduxjs/toolkit";
-
-interface ITEM {
-  id: number;
-  name: string;
-  price: string;
-  img: string;
-}  
-
+import { ITEM } from "../../../@types/Types";
 
 export const Items = createSlice({
   name: "items",
   initialState: {
-    cart: [] as any,
+    cart: [] as ITEM[],
     items: [],
     totalAmount: 0,
     totalQuantity: 23,
@@ -33,22 +26,34 @@ export const Items = createSlice({
 
     // Add items into cart array
     AddItemsIntoCart: (state, action: { payload: ITEM }) => {
-         state.cart.push(action.payload)
+      state.cart.push(action.payload);
+    },
+
+    // Add items into cart array
+    removeItemFromCart: (state, action: { payload: number }) => {
+      const itemIdToRemove = action.payload;
+      const updatedCart = state.cart.filter(
+        (item: { id: number }) => item.id !== itemIdToRemove
+      );
+      return {
+        ...state,
+        cart: updatedCart,
+      };
     },
 
     APIRequestError: (state, action) => {
       state.loading = false;
       state.error = true;
-      // toast.error(action.payload, {
-      //   position: "top-center",
-      //   style: { width: "auto", height: "auto" },
-      //   duration: 3000,
-      // });
     },
   },
 });
 
-export const { MakingApiRequest, RetrievingItems, AddItemsIntoCart, APIRequestError } =
-  Items.actions;
+export const {
+  MakingApiRequest,
+  RetrievingItems,
+  AddItemsIntoCart,
+  removeItemFromCart,
+  APIRequestError,
+} = Items.actions;
 
 export default Items.reducer;

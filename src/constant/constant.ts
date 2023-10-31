@@ -42,20 +42,20 @@ export const HOMEPAGE_BUTTONS = [
 export const ADD_ITEM_INPUTS = [
     {
         label: "name",
-        name: "Name",
+        name: "name",
         type: "text",
         placeholder: "Enter item name",
     },
     
     {
         label: "price",
-        name: "Price",
-        type: "number",
+        name: "price",
+        type: "text",
         placeholder: "Enter item price",
     },
     {
         label: "imageURL",
-        name: "Image URL",
+        name: "img",
         type: "text",
         placeholder: "Enter Image URL",
     },

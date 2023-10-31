@@ -1,6 +1,6 @@
 "use client";
 import React from 'react'
-import { ITEM } from '../../@types/Item.types'
+import { ITEM } from '../../@types/Types'
 import { AnyAction, Dispatch } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";

@@ -1,8 +1,8 @@
 "use client";
-import React, { FormEvent, useRef } from 'react'
-import { ADD_ITEM_INPUTS } from '@/constant/constant';
-
-
+import React, { FormEvent, useRef, useState } from "react";
+import { ADD_ITEM_INPUTS } from "@/constant/constant";
+import { addNewItem } from "@/redux/service/api";
+import { useRouter } from "next/navigation";
 interface InputItem {
   label: string;
   name: string;
@@ -11,22 +11,31 @@ interface InputItem {
 }
 
 const page = () => {
-  console.log("component rendered")
- const formRef = useRef<HTMLFormElement | null>(null);
+  const [loading, setloading] = useState<boolean>(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const Navigate = useRouter();
 
-  const submitHandler = (e: FormEvent) => {
+  const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
+    setloading(true);
     if (formRef.current) {
       const formData: any = new FormData(formRef.current);
-     
-      const newItem:any = {};
+      const newItem: any = {};
       // Access input values using FormData
       for (const [name, value] of formData.entries()) {
-        console.log(`${name}: ${value}`);
         newItem[name] = value;
       }
-
-      console.log("New Item data is: ", newItem)
+      // calling api to addItem
+      try {
+        const res = await addNewItem(newItem);
+        if (res.status == 200 || res.data) {
+          setloading(false);
+          Navigate.push("/items");
+          alert("Item Added Successfully");
+        }
+      } catch (error) {
+        alert("Something went wrong");
+      }
     }
   };
   return (
@@ -58,12 +67,12 @@ const page = () => {
             type="submit"
             className="w-full mt-2 font-semibold py-2 text-center bg-yellow-500 text-black rounded-sm hover:bg-yellow-600"
           >
-            Submit
+            {loading ? "loading..." : "Submit"}
           </button>
         </form>
       </div>
     </div>
   );
-}
+};
 
-export default page
+export default page;
