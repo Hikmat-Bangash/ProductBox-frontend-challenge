@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.home {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* margin-top: 10%; */
+
+  }
+  
+  .home__image {
+    margin: 0;
+    width: 100%;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    z-index: -1 !important;
+    margin-bottom: -400px;
+  }
+
+   
+  .home_btn {
+    margin-right: 35%;
+  }
+  
