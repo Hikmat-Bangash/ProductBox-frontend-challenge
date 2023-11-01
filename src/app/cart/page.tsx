@@ -11,7 +11,7 @@ import EmptyCart from "../../../public/assets/emptyCart.svg";
 const Page = () => {
   const dispatch = useDispatch();
   const items = useSelector((state: RootState) => state.Items.cart);
-  // calculating total Price
+  // calculating total amount
   const totalPrice = items.reduce((accumulator: any, item: { price: any }) => {
     const price = parseFloat(item.price);
     if (!isNaN(price)) {

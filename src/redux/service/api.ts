@@ -14,11 +14,11 @@ export const FetchingItems = async (dispatch: Dispatch<AnyAction>): Promise<any>
         dispatch(RetrievingItems(res.data));
         // return res.data;
     } catch (err: any) {
-        if (err.response?.status == 401) {
+        if (err?.response?.status == 401) {
             dispatch(APIRequestError(err.response.data));
-            return err.response;
-        } else if (err.response.status == 500) {
-            dispatch(APIRequestError(err.response.statusText));
+            return err?.response;
+        } else if (err?.response?.status == 500) {
+            dispatch(APIRequestError(err?.response?.statusText));
             return err.response;
         }
     }
@@ -32,9 +32,9 @@ export const addNewItem = async (newItem:any): Promise<any> => {
         return res;
     } catch (err: any) {
         if (err.response?.status == 401) {
-            return err.response;
-        } else if (err.response.status == 500) {
-            return err.response;
+            return err?.response;
+        } else if (err?.response?.status == 500) {
+            return err?.response;
         }
     }
 };

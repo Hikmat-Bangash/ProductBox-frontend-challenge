@@ -60,3 +60,38 @@ export const ADD_ITEM_INPUTS = [
         placeholder: "Enter Image URL",
     },
 ]
+
+// SHIPPING FORM INPUTS
+export const SHIPPING_FORM = [
+    {
+        label: "Enter Fullname",
+        name: "FullName",
+        type: "text",
+        placeholder: "Your's good name",
+    },
+    {
+        label: "Email Address",
+        name: "email",
+        type: "email",
+        placeholder: "example@gmail.com",
+    },
+    {
+        label: "City",
+        name: "city",
+        type: "text",
+        placeholder: "your city",
+    },
+    {
+        label: "Enter Home address",
+        name: "HomeAddress",
+        type: "text",
+        placeholder: "Your's residence address"
+    },
+    {
+        label: "Postal Code",
+        name: "PostalCode",
+        type: "number",
+        placeholder: "****"
+    }
+
+]
