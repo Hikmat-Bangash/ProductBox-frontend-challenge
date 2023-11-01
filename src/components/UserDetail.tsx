@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import { ITEM, SHIPPING } from "../../@types/Types";
 import Image from "next/image";
+import { CITY_LABEL, EMAIL_LABEL, HOME_ADDRESS_LABEL, POSTAL_CODE_LABEL, USERNAME_LABEL } from "@/constant/constant";
 
 const UserDetail = () => {
   const CartItem: ITEM[] = useSelector((state: RootState) => state.Items.cart);
@@ -15,19 +16,19 @@ const UserDetail = () => {
     <>
       <div className="userDetail rounded-md shadow-lg h-auto w-full p-3 bg-gray-50">
         <p>
-          Name:
+          {USERNAME_LABEL}
           <strong className="ml-[8rem]">{shippingDetail.FullName}</strong>
           <br />
-          Email:
+          {EMAIL_LABEL}
           <strong className="ml-[8rem]"> {shippingDetail.email}</strong>
           <br />
-          Home Address:
+          {HOME_ADDRESS_LABEL}
           <strong className="ml-[4rem]">{shippingDetail.HomeAddress}</strong>
           <br />
-          Postal Code:
+          {POSTAL_CODE_LABEL}
           <strong className="ml-[5rem]">{shippingDetail.PostalCode}</strong>
           <br />
-          City:
+          {CITY_LABEL}
           <strong className="ml-[9rem]">{shippingDetail.city}</strong>
           <br />
         </p>

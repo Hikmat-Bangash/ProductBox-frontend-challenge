@@ -1,6 +1,6 @@
 "use client";
 import React, { FormEvent, useRef, useState } from "react";
-import { ADD_ITEM_INPUTS } from "@/constant/constant";
+import { ADD_ITEM_INPUTS, ADD_ITEM_PAGE_BUTTON, ADD_ITEM_PAGE_TITLE } from "@/constant/constant";
 import { addNewItem } from "@/redux/service/api";
 import { useRouter } from "next/navigation";
 interface InputItem {
@@ -42,7 +42,7 @@ const page = () => {
     <div className="w-full h-screen flex justify-center items-center">
       <div className="wrapper w-[30%] p-[1rem] flex flex-col gap-8">
         <h1 className="text-xl text-center font-bold tracking-[2px]">
-          Add New Item
+          {ADD_ITEM_PAGE_TITLE}
         </h1>
 
         <form
@@ -67,7 +67,7 @@ const page = () => {
             type="submit"
             className="w-full mt-2 font-semibold py-2 text-center bg-yellow-500 text-black rounded-sm hover:bg-yellow-600"
           >
-            {loading ? "loading..." : "Submit"}
+            {loading ? "loading..." : ADD_ITEM_PAGE_BUTTON}
           </button>
         </form>
       </div>

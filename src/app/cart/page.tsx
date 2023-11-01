@@ -7,6 +7,7 @@ import { removeItemFromCart } from "@/redux/features/ItemSlice";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 import EmptyCart from "../../../public/assets/emptyCart.svg";
+import { CART_EMPTY_TITLE, CHECKOUT_BUTTON, ORDER_SUMMARY_HEADING, REMOVE_ITEM_BUTTON } from "@/constant/constant";
 
 const Page = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const Page = () => {
           <>
             <div className="empty-basket w-full flex justify-center items-center flex-col gap-4">
               <h2 className="text-lg text-black">
-                Your Shopping cart is empty!
+                {CART_EMPTY_TITLE}
               </h2>
               <Image
                 src={EmptyCart}
@@ -69,7 +70,7 @@ const Page = () => {
                           onClick={() => dispatch(removeItemFromCart(item.id))}
                           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center"
                         >
-                          remove
+                          {REMOVE_ITEM_BUTTON}
                         </button>
                       </div>
                     </div>
@@ -81,7 +82,7 @@ const Page = () => {
             {/* right side */}
             <div className="checkout w-[50%] flex justify-center fixed top-[8rem] right-4">
               <div className="wrapper w-[50%] h-[12rem] rounded-md p-8 bg-gray-100 flex flex-col gap-2">
-                <h1 className="text-lg font-bold">Order Summary</h1>
+                <h1 className="text-lg font-bold">{ORDER_SUMMARY_HEADING}</h1>
                 <div className="sub-total w-full py-3 border-b border-gray-300 flex justify-between">
                   <p className="text-gray-500 text-sm">Subtotal</p>
                   <h4>${totalPrice}</h4>
@@ -92,7 +93,7 @@ const Page = () => {
                   href="/shipping"
                   className=" w-full flex mt-3 justify-center items-center py-2 rounded-md bg-blue-700 text-white text-[0.8rem]"
                 >
-                  Checkout
+                  {CHECKOUT_BUTTON}
                 </Link>
               </div>
             </div>

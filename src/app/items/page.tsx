@@ -9,10 +9,11 @@ import { RootState } from "@/redux/store";
 import { AddItemsIntoCart } from "@/redux/features/ItemSlice";
 import { ITEM } from "../../../@types/Types";
 import Loader from "../loading";
+import { ADD_TO_CART_BUTTON } from "@/constant/constant";
 
 const page = () => {
   const dispatch: Dispatch<AnyAction> = useDispatch();
-  const { loading, error, items }: any = useSelector(
+  const { loading, items }: any = useSelector(
     (state: RootState) => state.Items
   );
 
@@ -24,7 +25,6 @@ const page = () => {
     FetchingItems(dispatch);
   }, []);
 
-  // JSX SECTION
   return (
     <div className="w-full mt-[8rem] h-auto flex justify-center items-center ">
       <div className="wrapper w-[80%] flex gap-[1rem] flex-wrap">
@@ -47,7 +47,7 @@ const page = () => {
                   alt="product image"
                 />
               </div>
-              {/* below item detail */}
+              {/* below is the item detail */}
               <div className="item-detail mt-5">
                 <div className="px-5 pb-5">
                   <h5 className="text-md font-semibold tracking-tight text-gray-900 ">
@@ -58,10 +58,10 @@ const page = () => {
                       ${item?.price}
                     </span>
                     <button
-                      onClick={(e) => AddToCart(item)}
+                      onClick={() => AddToCart(item)}
                       className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                     >
-                      Add to cart
+                      {ADD_TO_CART_BUTTON}
                     </button>
                   </div>
                 </div>

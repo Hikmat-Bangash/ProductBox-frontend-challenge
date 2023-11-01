@@ -1,5 +1,27 @@
+export const LOGO_URL = "https://media.licdn.com/dms/image/C4D0BAQE3o3NS8S9Yzg/company-logo_200_200/0/1638522763263/productbox_logo?e=1706745600&v=beta&t=_OyqA-jjeNeLcWe5amPPI9e1sMyy4sjZM66uAZ1ctg8";
 
-// Navbar tabs
+export const LOGO_TITLE = "ProductBox";
+export const ORDER_PAGE_TITLE = "Shipping Detail";
+export const SHIPPING_FORM_TITLE = "Shipping Address";
+export const SHIPPING_FORM_BUTTON = "Continue";
+export const ADD_ITEM_PAGE_TITLE = "Add New Item";
+export const ADD_ITEM_PAGE_BUTTON = "Submit";
+export const CART_EMPTY_TITLE = "Your Shopping cart is empty!";
+export const REMOVE_ITEM_BUTTON = "remove";
+export const ORDER_SUMMARY_HEADING = "Order Summary";
+export const CHECKOUT_BUTTON = "Checkout";
+export const ADD_TO_CART_BUTTON = "Add to cart";
+export const BASKET_ITEMS = "Items:";
+export const SUB_TOTAL_HEADING = "Subtotal";
+export const PLACED_ORDER_BUTTON = "Place Order";
+// shipping detail
+export const USERNAME_LABEL = "Name:";
+export const EMAIL_LABEL = "Email:";
+export const HOME_ADDRESS_LABEL = "Home Address:";
+export const POSTAL_CODE_LABEL = "Postal Code:";
+export const CITY_LABEL = "City:";
+
+
 export const NAVIGATION_TABS = [
     {
         index: 1,
@@ -18,7 +40,6 @@ export const NAVIGATION_TABS = [
     },
 ]
 
-// ----- home page buttons ------
 export const HOMEPAGE_BUTTONS = [
     {
         index: 1,
@@ -38,7 +59,6 @@ export const HOMEPAGE_BUTTONS = [
 ]
 
 
-// Form Inputs
 export const ADD_ITEM_INPUTS = [
     {
         label: "name",
@@ -61,7 +81,6 @@ export const ADD_ITEM_INPUTS = [
     },
 ]
 
-// SHIPPING FORM INPUTS
 export const SHIPPING_FORM = [
     {
         label: "Enter Fullname",

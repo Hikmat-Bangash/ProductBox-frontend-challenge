@@ -8,7 +8,7 @@ import { ShippingDetail } from "@/redux/features/ShippingDetail.Slice";
 import { SHIPPING } from "../../../../@types/Types";
 import { AnyAction } from "@reduxjs/toolkit";
 import { useRouter } from "next/navigation";
-import { SHIPPING_FORM } from "@/constant/constant";
+import { SHIPPING_FORM, SHIPPING_FORM_BUTTON, SHIPPING_FORM_TITLE } from "@/constant/constant";
 
 const page = () => {
   const {
@@ -33,7 +33,7 @@ const page = () => {
       {/* wrapper */}
       <div className="wrapper w-[40rem] h-auto flex flex-col items-center  gap-[1rem] ">
         {/* heading */}
-        <div className="text-[2rem] text-black font-bold">Shipping Address</div>
+        <div className="text-[2rem] text-black font-bold">{ SHIPPING_FORM_TITLE}</div>
 
         {/* form */}
         <form
@@ -59,11 +59,12 @@ const page = () => {
               </div>
             </div>
           ))}
+
           <button
             type="submit"
             className=" outline-none mt-3 w-full py-2 rounded-md bg-yellow-600 flex justify-center items-center"
           >
-            <span className="text-white text-sm font-bold">Continue</span>
+            <span className="text-white text-sm font-bold">{SHIPPING_FORM_BUTTON}</span>
           </button>
         </form>
       </div>

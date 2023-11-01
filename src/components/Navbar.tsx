@@ -4,7 +4,7 @@ import Link from "next/link";
 import { AiOutlineShoppingCart } from "react-icons/ai"
 import { useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
-import { NAVIGATION_TABS } from "@/constant/constant";
+import { LOGO_TITLE, LOGO_URL, NAVIGATION_TABS } from "@/constant/constant";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
@@ -19,12 +19,12 @@ const Navbar = () => {
           className="flex items-center text-white"
         >
           <img
-            src="https://media.licdn.com/dms/image/C4D0BAQE3o3NS8S9Yzg/company-logo_200_200/0/1638522763263/productbox_logo?e=1706745600&v=beta&t=_OyqA-jjeNeLcWe5amPPI9e1sMyy4sjZM66uAZ1ctg8"
+            src={LOGO_URL}
             className="h-8 mr-3"
             alt="productbox Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            ProductBox
+           {LOGO_TITLE}
           </span>
         </Link>
 

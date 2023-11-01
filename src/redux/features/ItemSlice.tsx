@@ -14,7 +14,6 @@ export const Items = createSlice({
   },
 
   reducers: {
-    // start api request for fetching datas
     MakingApiRequest: (state) => {
       state.loading = true;
     },
@@ -24,12 +23,10 @@ export const Items = createSlice({
       state.items = action.payload;
     },
 
-    // Add items into cart array
     AddItemsIntoCart: (state, action: { payload: ITEM }) => {
       state.cart.push(action.payload);
     },
 
-    // Add items into cart array
     removeItemFromCart: (state, action: { payload: number }) => {
       const itemIdToRemove = action.payload;
       const updatedCart = state.cart.filter(
@@ -41,7 +38,7 @@ export const Items = createSlice({
       };
     },
 
-    APIRequestError: (state, action) => {
+    APIRequestError: (state) => {
       state.loading = false;
       state.error = true;
     },
